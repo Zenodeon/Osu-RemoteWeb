@@ -1,24 +1,40 @@
-var count = 0;
+var tcount = 0;
+var rcount = 0;
 
-var countText:HTMLElement;
+var tCountText:HTMLElement;
+var rCountText:HTMLElement;
 
 function BodyLoaded()
 {
 var obj = document.getElementById('touchzone');
-obj.addEventListener('touchstart', TouchHandler, false);
-obj.addEventListener('mousedown', TouchHandler, false);
+obj.addEventListener('touchstart', TouchStart, false);
+obj.addEventListener('touchend', TouchEnd, false);
+obj.addEventListener('mousedown', TouchStart, false);
+obj.addEventListener('mouseup', TouchEnd, false);
 
-countText = document.getElementById('countID');
+tCountText = document.getElementById('touchCountID');
+rCountText = document.getElementById('releaseCountID');
 
-UpdateCount();
+UpdateTCount();
+UpdateRCount();
 }
 
-function TouchHandler()
+function TouchStart()
 {
-UpdateCount();
+UpdateTCount();
 }
 
-function UpdateCount()
+function TouchEnd()
 {
-countText.innerText = "Count : " + count++;
+UpdateRCount();
+}
+
+function UpdateTCount()
+{
+tCountText.innerText = "Count : " + tcount++;
+}
+
+function UpdateRCount()
+{
+rCountText.innerText = "Count : " + rcount++;
 }
