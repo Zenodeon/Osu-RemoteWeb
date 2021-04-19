@@ -12,6 +12,7 @@
     "watch": "run-p serve watch:*"
   },
   "devDependencies": {
+    "@types/node": "^14.14.41",
     "browser-sync": "^2.18.0",
     "copyfiles": "^1.2.0",
     "node-sass": "^4.5.0",
@@ -20,6 +21,8 @@
     "typescript": "^2.3.0"
   },
   "dependencies": {
-    "dev-ip": "^1.0.1"
+    "dev-ip": "^1.0.1",
+    "dgram": "^1.0.1",
+    "netcode": "^2.0.4"
   }
 }
